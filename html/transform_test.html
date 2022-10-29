@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img { width: 450px; height: 250px; position: absolute;}
+        .img_transform1 {transform: skewY(10deg);}
+        .t1 {top: 200px; left: 100px; z-index: 1;}
+        .t2 {top: 150px; left: 200px;}
+        .t3 {top: 100px; left: 300px; z-index: -1;}
+
+        
+    </style>
+</head>
+<body>
+    <img class="img_transform1 t1" src="transform1.png">
+    <img class="img_transform1 t2" src="transform2.png">
+    <img class="img_transform1 t3" src="transform3.png">
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red { color: red;} /*중복 중첩 사용 가능*/
+        .deco { text-decoration: underline;}
+        .apple { font-size: 50px;}
+        #hrid { color: orange;}
+        * { font-family: Georgia, cursive;} /*georgia로 글씨체 설정하나 없으면 cursive로 설정*/
+
+        /* h1 { color: red;}
+        h2 { color: blue; text-decoration: underline;}
+        h3 { color: green; text-shadow: 2px 2px 1px black;}
+        hr {border: 5px; border-style: dotted solid; color: yellow;}
+        p { background-color: black; color: white;}
+        img { cursor: progress; margin-left: 100px;}
+        div { border: 1px red solid; height: 100px; width: 100px;
+        border-radius: 40px; background-color: pink;} */
+
+        #div2 .apple { color: green; } /*하위선택자*/
+        #div2 > .apple {text-decoration: underline;} /*자손 선택*/
+        .apple + p { background-color: pink;} /*인접 형제 선택자!!!!!!!!!!!!!!!!!!!!!*/
+        .b + span { color: red;} /* b class 바로 다음 형제 span을 찾는 선택자 */
+        .b ~ span { color: blue;} /*일반 형제 : b class 뒤에 모든 형제 span에게 적용 만약 같은 선택자가 두개만 아래있는 선택자가 적용됨*/
+    </style>
+</head>
+<body>
+    <div>
+        <span class="a">-1</span>
+        <span>0</span>
+        <span>1</span>
+        <span class="b">2</span>
+        <span>3</span>
+        <span>4</span>
+        <strong>5</strong>
+        <span>6</span>
+    </div>
+    <div>
+        <div id="div2">
+            <p class="apple">1</p>
+            <p class="apple">2</p>
+            <div>
+                <p class="apple">3</p>
+            </div>
+            <p>4</p>
+        </div>
+        <p class="apple">5</p>
+        <p>6</p>
+        
+    </div>
+    <h1 class="deco">h1</h1>
+    <h2 class="red deco">h2</h2>
+    <h3 class="red">h3</h3>
+    <hr id="hrid">
+    <p id="hrid">p 1</p>
+    <p>p2</p>
+    <img src="common.jpg">
+    <div></div>
+</body>
+</html>

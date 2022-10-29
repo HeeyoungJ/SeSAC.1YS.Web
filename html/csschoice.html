@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .fruits span:first-child{ color: red;}
+    .fruits div:first-child{ color: red;}
+    .fruits h3:last-child{ color: red;} /*마지막 자식이 h3태그일 경우, 적용하라*/
+    .fruits *:nth-child(2) {color: red;} /*n번째 요소 적용*/
+    .fruits span:nth-child(2) {color: orange;} /*2번째 자식이 span이라면 적용하라*/
+    .fruits *:not(span) {color: blue;} /*해당 태그가 아닌 요소에 적용*/
+    </style>
+</head>
+<body>
+    <div class="fruits">
+        <span>딸기</span>
+        <span>수박</span>
+        <div>오렌지</div>
+        <p>망고</p>
+        <h3>사과</h3>
+    </div>
+</body>
+</html>
