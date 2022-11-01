@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        body {
+            animation-name: body;
+            animation-timing-function: ease;
+            animation-duration: 30s;
+            animation-iteration-count: infinite;
+            transform-origin: center 600px;
+        }
+        @keyframes body {
+            0% {background-color: rgb(7, 92, 162);
+                opacity: 1;
+                }
+            25%{ background-color: skyblue;
+                opacity: 1;}
+            50%{ background-color: plum;
+                opacity: 1;}
+            75%{ background-color: darkmagenta;
+                opacity: 1;}
+            100%{background-color: rgb(7, 92, 162);
+                opacity: 1;}
+        }
+
+        .sun {
+            animation-name: sun;
+            animation-timing-function: linear;
+            animation-duration: 30s;
+            animation-iteration-count: infinite;
+            transform-origin: center 600px;
+            
+        }
+        @keyframes sun {
+            0% {
+                transform: rotate(-90deg);
+                opacity: 0;
+                }
+            25%{ transform: rotate(0deg);
+                opacity: 1;}
+            50%{ transform: rotate(90deg);
+                opacity: 0;}
+            75%{ transform: rotate(90deg);
+                opacity: 0;}
+            100%{transform: rotate(90deg);
+                opacity: 0;}
+        }
+        .moon {
+            animation-name: moon;
+            animation-timing-function: linear;
+            animation-duration: 30s;
+            animation-iteration-count: infinite;
+            transform-origin: center: 600px;
+        }
+        @keyframes moon {
+            0% {
+                transform: rotate(90deg);
+                opacity: 0;
+                }
+            25%{ transform: rotate(90deg);
+                opacity: 0;}
+            50%{ transform: rotate(90deg);
+                opacity: 0;}
+            75%{ transform: rotate(0deg);
+                opacity: 1;}
+            100%{transform: rotate(-90deg);
+                opacity: 0;}
+        }
+        .cloud_1 {
+            animation-name: cloud_1;
+            animation-timing-function: linear;
+            animation-duration: 40s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes cloud_1 {
+            0% {
+                left: 1000px;
+                opacity: 0;
+                }
+            25%{ left: 500px;
+                opacity: 1;}
+            50%{left: 0px;
+                opacity: 0;}
+            75%{left: 500px;
+                opacity: 1;}
+            100%{left: 1000px;
+                opacity: 0;}
+        }
+        .cloud_2 {
+            animation-name: cloud_2;
+            animation-timing-function: linear;
+            animation-duration: 30s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes cloud_2 {
+            0% {
+                left: 1000px;
+                opacity: 0;
+                }
+            25%{ left: 500px;
+                opacity: 1;}
+            50%{left: 0px;
+                opacity: 0;}
+            75%{left: 500px;
+                opacity: 1;}
+            100%{left: 1000px;
+                opacity: 0;}
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <article class="sky">
+            <img src="./img/sun.png" alt="태양" class="sun">
+            <img src="./img/moon.png" alt="달" class="moon">
+            <img src="./img/cloud.png" alt="큰 구름" class="cloud_1">
+            <img src="./img/cloud.png" alt="작은 구름" class="cloud_2">
+        </article>
+
+        <article class="city">
+            <img src="./img/city.png" alt="" class="city_img">
+        </article>
+    </section>
+</body>
+
+</html>

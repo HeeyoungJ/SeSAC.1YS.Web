@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: blue;
+            position: relative;
+            animation-name: anim; /*이름*/
+            animation-duration: 2s; /*유지시간*/
+            animation-delay: 1s; /*처음 시작할 때 몇초뒤에 애니메이션을 실행시켜라*/
+            animation-timing-function: ease;
+            animation-iteration-count: 3; /*반복 횟수*/
+        }
+
+        @keyframes anim { /*중간상태 지정*/
+            /* from { left: 0px;}
+            to { left: 100px;} */
+            0% { left: 0px;} /*%는 애니메이션의 상태를 세부적으로 나눌 수 있다.(25%단위로 끊을 수 있음.)*/
+            50%{ left: 200px;}
+            100% {left: 100px;}
+        }
+
+        .div1 {
+            border-radius : 50px;
+            background: yellow;
+            animation-name: ball; /*이름*/
+            animation-duration: 3s; /*유지시간*/
+            animation-iteration-count: 30;
+        }
+        @keyframes ball {
+            /*opacity는 불투명도로 1~0으로 표시*/
+            from { top: 300px;opacity: 1;}
+            to { top: 100px; opacity: 0;}
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div class="div1"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation test</title>
+    <style>
+        p {
+            position: relative;
+            animation-name: test;
+            animation-duration: 3s;
+            animation-timing-function: ease;
+            animation-iteration-count: 2;
+        }
+        @keyframes test{
+            0% {left:3000px;}
+            100% {left:0px;}
+        }
+    </style>
+</head>
+<body>
+    <p> "As I relax on the sofa and gaze around a room a thought hits me:
+        this is exactly the place I've been looking for all my life.
+        A little hideaway in some sinkhole somewhere.
+        I'd always thought of it as a secret, imaginary place, and can barely believe that it actually exists.
+        I close my eyes and take a breath, and wonder of it all settles over me like a gentle cloud."
+    </p>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script</title>
+    <script>
+        // alert('hi'); 창을 띄우는 태그
+        // console.log('hello'); 중간 상황  체크용
+
+        var a;
+        console.log(a);
+        var a = 1;
+        console.log(a);
+        var a = "2";
+        console.log(a);
+
+        let b;
+        console.log(b);
+        b = 1;
+
+        // console.log(typeof('문자'));
+        // console.log(typeof(245));
+        // console.log(typeof(function a() {}));
+        // console.log(typeof(true));
+        // console.log(typeof({}));
+        // console.log(typeof([]));
+        // console.log(typeof(NaN));
+        // console.log(typeof(null));
+
+        // console.log(a + "반갑습니다");
+        // console.log(a + b);
+        // console.log(parseInt(a) + b);
+
+
+        // function sesac() {
+        //     console.log("sesac hi!");
+        // }
+        // sesac(); //실행이 선언보다 위에 있으면 안됨.
+        // function sesac2( abc , test, a) {
+        //     alert(abc + " " + a + " hello ");
+        // }
+        // sesac2("홍길동", "" , "13");
+        // sesac2( a );
+        // //const에 담아서 함수 만들면 중복 방지가 가능 알아만 두기
+
+        function init() {
+            console.log("init");
+        }
+        function parameter1( a ) {
+            console.log(a);
+        }
+        function parameter2( a, b ) {
+            console.log(a + " " + b);
+        }      
+        function parameter3( a, b, c ) {
+            console.log("a : " + a);
+            console.log("b : " + b);
+            console.log("c : " + c);
+        }
+
+        init(); // 기본 형태 실행
+        parameter1();
+        parameter1(10);
+        parameter2(5, 3);
+        parameter3(1, 2, 3);
+        var variable = "hi";
+        parameter3(variable, variable, variable);
+        parameter3(variable, variable);
+        parameter3(variable);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
