@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var cat = {
+            name: '나비',
+            age: 1,
+            mew: function() {
+                return "야옹";
+            }
+        }
+        console.log(cat);
+        console.log(cat.name);
+        console.log(cat.mew()); //자료형
+
+        function hello() {
+            return "안녕";
+        }
+        function hi() {
+            console.log("hi");
+        }
+        console.log(hi());
+
+        var a = hello();
+        console.log(a);
+        
+        var arr1 = [1, 2, 3, 'a', 'b', 'c'];
+        var arr2 = new Array(1, 2, 3, 'a', 'b', 'c');
+        console.log(arr1);
+        console.log(arr1[0]); //index는 0부터 시작해서 1을 출력함.
+        console.log(arr1.indexOf('a')); //indexof는 몇번째에 위치하는지 알려줌.
+        console.log("length : " + arr1.length); //length는 이 배열의 길이를 알려줌.
+        
+        arr1.push('d');
+        console.log(arr1);
+        arr1.pop();
+        console.log(arr1);
+        
+        console.log(arr1[2]);
+        arr1.unshift('0');
+        console.log(arr1[2]);
+        console.log(arr1); //index는 !!!
+        arr1.shift();
+        console.log(arr1[2]); //배열은 index를 기반으로 가져와야함-???????what
+        console.log(arr1);
+        
+
+        var me = {
+            name : 'kyuri',
+            birth : '1115'
+        };
+        me['gender']="f";
+        console.log(me);
+        console.log(me["name"]); //딕셔너리는 키값으로 가져옴!!!
+        console.log(me.name);
+
+        me.gender = 'M'; //gender가 key임.
+        me["age"] = 10;
+        console.log(me);
+
+        // 정리
+        var ar = [1,2];
+        // 배열에서 값을 가져올 때는 index를
+        console.log( ar[0] )
+        
+        console.log("-------------------");
+        
+        var date = new Date();
+        console.log( date );
+
+        console.log( date.getYear() ); //2000년대와 1900년대를 구분하기 위해 앞에 1을 붙여줌.
+        console.log( date.getMonth() );
+        console.log( date.getDate() );
+        console.log( date.getDay() );
+        console.log( date.getTime() );
+        console.log( date.getHours() );
+
+        
+        // new Data(밀리초)
+        // new Data(8000000) // 1970년 1월 1일 0시부터 밀리초만큼 지난 날짜
+        // new Data(년, 월, 일, 시, )
+        // new Data()
+        // new Data()
+
+        console.log("-------------------");
+        console.log( Math.min());
+        console.log(Math.min(-10, 2, 10));
+        console.log(Math.min(0, 'a', 5)); //비교할 수 없어 NaN값 반환
+
+        console.log(Math.max(-10, 2, 10));
+
+        console.log(Math.random());
+        
+        var min = 1; var max = 10;
+        console.log(Math.random() * (max-min) + min);
+        
+        console.log(Math.round(1.2)); //소수점 첫번째에서 반올림하는 함수
+        console.log(Math.round(-1.7)); //정수로 반환
+        
+        console.log(Math.floor(1.9));
+        console.log(Math.ceil(1.1));
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

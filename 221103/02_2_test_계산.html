@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <script>
+        function calcu() {
+            var c1 = document.getElementById("value1").value ;
+            var c2 = document.getElementById("value2").value ;
+            var c3 = document.getElementById("value3").value ;
+            switch(c3)
+            {case '+' :
+            document.getElementById("value4").value = (Number(c1) + Number(c2));
+            case '-' :
+            document.getElementById("value4").value = (Number(c1) - Number(c2));
+            case '*' :
+            document.getElementById("value4").value = (Number(c1) * Number(c2));
+            case '/' :
+            document.getElementById("value4").value = (Number(c1) / Number(c2));
+        }}
+        function erase() {
+            var c1 = document.getElementById("value1").value ;
+            var c2 = document.getElementById("value2").value ;
+            var c3 = document.getElementById("value3").value ;
+            var c4 = document.getElementById("value4").value ;
+            document.getElementById("value1").value = '';
+            document.getElementById("value2").value = '';
+            document.getElementById("value3").value = '';
+            document.getElementById("value4").value = '';
+        }
+        
+
+    </script>
+</head>
+<body>
+    <span>값1:</span>
+    <input type="text" id="value1" value="">
+    <div></div>
+    <span>값2:</span>
+    <input type="text" id="value2" value="">
+    <div></div>
+    <span>연산자:</span>
+    <input type="text" id="value3" value="">
+    <div></div>
+    <span>결과:</span>
+    <input type="text" id="value4" value="">
+    <div></div>
+    <div style="height: 25px;"></div>
+    <button type="button" onclick="calcu();">계산하기</button>
+    <button type="button" onclick="erase();">초기화</button>
+</body>
+</html>

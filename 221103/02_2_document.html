@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+
+        function imgChange() {
+            var tag = document.querySelector("img");
+            console.log(tag);
+            console.log(tag.src); //src속성을 가져옴
+            console.log(tag.width); //width속성을 가져옴
+            tag.src = "./img.jpg";
+        }
+
+
+        function add() {
+            var li = document.createElement("li");
+            li.innerText = "새로운 li";
+            console.log(li);
+
+            var ul = document.querySelector("ul");
+            ul.append(li, "123"); //가장 뒤에 여럭개 추가 가능
+            //ul.appendChild(li); //가장 뒤에 한개만 추가 가능
+        }
+
+        function remove() {
+            //내 자신 선택해서 삭제
+            var li = document.querySelector("li");
+            li.remove(); //removeChild는 잘 사용안함.
+            
+            //부모 요소 선택해서 삭제
+            var ul = document.querySelector("ul");
+            var li2 = document.querySelector("li");
+            ul.removeChild(li2);
+
+            //li.parentElement.removeChild(li); //부모요소 모를 때 사용
+            //양식 : 부모요소.removeChild(자식요소)
+        }
+
+
+    </script>
+</head>
+<body>
+
+
+    <img src="./cat.jpg" width="100" height="100">
+    <button type="button" onclick="imgChange()">이미지</button>
+
+    
+    <ul>
+        <li>이름</li>
+    </ul>
+    <button type="button" onclick="add()">추가</button>
+    <button type="button" onclick="remove()">삭제</button>
+</body>
+</html>
