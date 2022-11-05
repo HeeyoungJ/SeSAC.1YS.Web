@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+    src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+    crossorigin="anonymous">
+    </script>
+    <script>
+        function apple(){
+            $("#div1").html(' <img src="./apple.jpg" width="600" height="400" > ');
+            console.log(img1);
+        }
+
+        function banana(){
+            $("#div1").html(' <img src="./banana.jpg" width="600" height="400"> ');
+            console.log(img1);
+        }
+        function gra(){
+            $("#div1").html(' <img src="./gra.jpg" width="600" height="400"> ');
+            console.log(img1);
+        }
+        function momo(){
+            $("#div1").html(' <img src="./momo.jpg" width="600" height="400"> ');
+            console.log(img1);
+        }
+    </script>
+
+</head>
+<body>
+    <div align="center">
+        <div id="div1">
+        <img src="./cat.jpg" width="600" height="400">
+        </div>
+            <button style="background-color: black; color: white;" type="button" onclick="apple()" >사과</button>
+            <button style="background-color: black; color: white;" type="button" onclick="banana()">바나나</button>
+            <button style="background-color: black; color: white;" type="button" onclick="gra()">포도</button>
+            <button style="background-color: black; color: white;" type="button" onclick="momo()">복숭아</button>
+    </div>
+</body>
+</html>

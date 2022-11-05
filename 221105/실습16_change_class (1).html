@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="./jquery-ui-1.13.2.custom/jquery-ui.js"></script>
+    <script src="./jquery-ui-1.13.2.custom/jquery-ui.css"></script>
+
+    <style>
+      div {
+        width: 100;
+        height: 100;
+      }
+      div:hover{
+        cursor: pointer;
+      }
+      .red {
+        background-color: red;
+      }
+      .orange {
+        background-color: orange;
+      }
+      .yellow {
+        background-color: yellow;
+      }
+      .green {
+        background-color: green;
+      }
+      .blue {
+        background-color: blue;
+      }
+      .purple {
+        background-color: purple;
+      }
+    </style>
+
+    <script>
+      function changeColor(){
+        $("div").switchClass("red", "orange" , 1000);
+        $("#div").attr("onclick", "changeColor1();");
+      }
+      function changeColor1(){
+        $("div").switchClass("orange" , "yellow", 1000);
+        $("#div").attr("onclick", "changeColor2();");
+      }
+      function changeColor2(){
+        $("div").switchClass("yellow", "green" , 1000);
+        $("#div").attr("onclick", "changeColor3();");
+      }
+      function changeColor3(){
+        $("div").switchClass("green" , "blue" , 1000);
+        $("#div").attr("onclick", "changeColor4();");
+      }
+      function changeColor4(){
+        $("div").switchClass("blue" , "purple" , 1000);
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="div" class="red" onclick="changeColor();"></div>
+  </body>
+</html>
