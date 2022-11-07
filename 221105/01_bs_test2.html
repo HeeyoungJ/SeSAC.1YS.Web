@@ -8,36 +8,55 @@
   <title>Daily_record</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <style>
+    body {
+      font-family: fantasy;
+    }
+    .btn1 {
+      border-radius : 20px; border: 0; background-color: #A7A2FF; color: white;
+    left: 10px; position: relative;
+    animation-name: btn1;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;}
 
+      /*@keyframes btn1 { /*중간상태 지정*/
+            /* from { left: 0px;}
+            to { left: 1500px;} */
+           /*0% { left: 0px;} /*%는 애니메이션의 상태를 세부적으로 나눌 수 있다.(25%단위로 끊을 수 있음.)*/
+           /*50%{ left: 1500px;}
+           100% {right: 0px;}*/
+        }
+
+    .bottomraw {width: 100%;
+      right: 16px; bottom: 8px; position: fixed;
+    }
+  </style>
   <script>
+
     var cnt = 1;
-    function writeNote(){
-    var name = document.getElementById("name").value;
-    var content = document.getElementById("content").value;
-​
-    var table = document.getElementById("table");
+    function record(){
+    var content1 = document.getElementById("content1").value;
+    var mood1 = document.getElementById("mood1").value;
+    
+    var tb1 = document.getElementsByClassName("table");
     var garo = document.createElement("tr");
-​
     var kan1 = document.createElement("td");
     kan1.innerText = cnt;
     cnt = cnt + 1;
-    var kan2 = document.createElement("td");
-    kan2.innerText = name;
     var kan3 = document.createElement("td");
-    kan3.innerText = content;
-​
+    kan3.innerText = content1;
     var kan4 = document.createElement("td");
+    kan4.innerText = mood1;
+    var kan2 = document.createElement("td");
     
     var date = new Date();
     console.log( date );
-​
-    kan4.innerText = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
-​
+    kan2.innerText = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
+    tb1.appendChild(garo);
     garo.appendChild(kan1);
     garo.appendChild(kan2);
     garo.appendChild(kan3);
     garo.appendChild(kan4);
-    table.appendChild(garo);
     }
   </script>
 
@@ -73,38 +92,35 @@
         </ul>
       </div>
 
-      <div id="liveAlertPlaceholder"></div>
+      <div id="liveAlertPlaceholder" style="height: 50px;"></div>
       <button type="button" class="btn btn-warning text-white" id="liveAlertBtn">today mood</button>
 
     </div>
   </nav>
 
   <div>
-    <p style="color: yellowgreen;"><strong>Hi. record your mood</strong></p>
+    <p style="color: #A7A2FF;"><strong>Hi. record your mood</strong></p>
     
     <div>
-         <table class="tbl">
-         <tr>
-             <th>mood</th>
-             <td>
-                 <input type="text" id="name" style="width: 150px;">
-             </td>
-         </tr>
-         <tr>
-             <th>diary</th>
-             <td>
-                 <input type="text" id="content" style="width: 560px;">
-             </td>
-         </tr>
-         </table>
-         
-         <button type="button" onclick="writeNote();">record</button>
-         
-         <br><br>
+      <div>
+        <p style="color: yellowgreen; text-align : center; font-family : Lucida Console;"><strong>Welcome to my diary.</strong></p>
+        
+        <div class="mb-3" style="font-family : Lucida Console;">
+          <label for="formGroupExampleInput" class="content">daily_record</label>
+          <input type="text" class="form-control" id="content1" placeholder="How was today?">
+        </div>
+        <div class="mb-3" style="font-family : Lucida Console;">
+        <label for="formGroupExampleInput2" class="mood">mood</label>
+        <input type="text" class="form-control" id="mood1" placeholder="today's mood.">
+        <br>
+        <button type="button" onclick="record();" class = "btn1" >Record</button>
+        
+        </div>
+      </div>
     </div>
   </div>
 
-  <table class="table table-info table-striped">
+  <table class="table" callspan="10" cellpadding="10" style="background-color: #A7A2FF;" align = "center">
     <tr>
       <td style="color: white;">n of piece</td>
       <td style="color: white;" width="200">date</td>
@@ -144,8 +160,8 @@
     }
   </script>
 
-<div style="background-color: gray;">
-  <span class="badge rounded-pill text-bg-warning">E-mail / wjdgmldud1994@gmail.com</span>
+<div class="bottomraw" align="right">
+  <span class="badge rounded-pill text-bg-info opacity-25" style="font-family : Georgia;">E-mail / wjdgmldud1994@gmail.com</span>
 </div>
 
 
