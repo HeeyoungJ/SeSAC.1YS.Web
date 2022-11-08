@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+    
+</head>
+<body>
+    <script
+    src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+    crossorigin="anonymous">
+    </script>
+    <input type="text" id="input1">
+    <p id="alert"></p>
+    <div style="width: 100px; height: 500px; background-color: yellow;" id="div1"></div>
+    <script>
+        //*이벤트
+        $(document).ready(function(){
+                alert("document.ready");
+            });
+        $(function(){
+                alert("ready")
+            });
+                
+                //*마우스 이벤트
+                $("#div1").click(function(e){
+                    console.log("div click")
+                    console.log("e : =" , e);
+                });
+                //마우스를 올렸을 때 발생하는 것. hover랑 다름
+                $("#div1").mouseover(function(){
+                    console.log("div mouseover");
+                }
+                );
+                //hover는 올렸을 때와 떼어냈을 때 둘다 감지하여 이벤트 2개 발생 가능(선택적)
+                $("#div1").hover(function(){
+                    console.log("div hover");
+                }, function(){
+                    console.log("div hover2");
+                });
+                // 스크롤 할 때 **개념 검색 후 다시 복습 필요
+                $( window ).scroll(function(){
+                    console.log("window scroll");
+                });
+                
+                //키보드 이벤트
+                //키를 내린 것, 누른 것
+                //ex.회원가입할 때, 아이디가 있는지 없는지 알려주는 알람 사용할 때 쓰임.이 경우, press는 사용하기 어려움
+                $("#input1").keydown(function(e){
+                    console.log("keydown :" , e.currentTarget.value);
+                    $("#alert").text("글자가 입력됨 ," + e.currentTarget.value);
+                    console.log("input keydown");
+                    console.log(e);
+                    //keycode는 키보드마다 모든 번호가 정해져있는데 이 번호로 특정 이벤트를 발생시킬 수 있다.
+                    //ex.enter 누르면 전송되는 것. !!!왜 느리게 전송되는가?
+                    if (e.keyCode == 13){
+                        console.log("enter key");
+                    }
+                });
+                //키를 올린 것
+                $("#input1").keyup(function(e){
+                    console.log("keyup :" , e.currentTarget.value);
+                    console.log("input keyup");
+                });
+                
+                
+                </script>
+</body>
+</html>

@@ -19,14 +19,6 @@
     animation-duration: 10s;
     animation-iteration-count: infinite;}
 
-      /*@keyframes btn1 { /*중간상태 지정*/
-            /* from { left: 0px;}
-            to { left: 1500px;} */
-           /*0% { left: 0px;} /*%는 애니메이션의 상태를 세부적으로 나눌 수 있다.(25%단위로 끊을 수 있음.)*/
-           /*50%{ left: 1500px;}
-           100% {right: 0px;}*/
-        }
-
     .bottomraw {width: 100%;
       right: 16px; bottom: 8px; position: fixed;
     }
@@ -58,6 +50,7 @@
     garo.appendChild(kan3);
     garo.appendChild(kan4);
     }
+
   </script>
 
 </head>
@@ -158,11 +151,29 @@
         alert('Have a nice day!', 'warning')
       })
     }
+
   </script>
 
 <div class="bottomraw" align="right">
   <span class="badge rounded-pill text-bg-info opacity-25" style="font-family : Georgia;">E-mail / wjdgmldud1994@gmail.com</span>
 </div>
+<script
+  src="https://code.jquery.com/jquery-3.6.1.min.js"
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+  crossorigin="anonymous">
+</script>
+<script>
+  var a;
+  var b;
+  $(".btn1").on("click" , function(){
+      a = $("#content1").value();
+      b = $("#content2").value();
+
+      console.log(a);
+      console.log(b);
+
+    });
+</script>
 
 
 

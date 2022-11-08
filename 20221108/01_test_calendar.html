@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+    src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+    crossorigin="anonymous">
+    </script>
+    
+</head>
+<body>
+    <span>날짜 :</span>
+    <input type="text" id="input1">
+    <br>
+    <span>내용 :</span>
+    <input type="text" id="input2">
+    <br>
+    <button type="button" id="btn1" >작성</button>
+    
+    <table border="0" cellpadding="30" cellspacing="0" align="center" style="cursor: pointer; " >
+        <tr> <!--가로줄-->
+            <td colspan="7">
+                <h1 style="text-align: center; color: green;">2019년 6월</h1>
+            </td>
+        </tr>
+        <tr>
+            <td style="color: red;">日</td>
+            <td>月</td>
+            <td>火</td>
+            <td>水</td>
+            <td>木</td>
+            <td>金</td>
+            <td>土</td>
+        </tr>
+        <tr>
+            <td style="color: red;"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="1">1</td>
+        </tr>
+        <tr>
+            <td id="2" style="color: red;">2</td>
+            <td id="3" >3</td>
+            <td id="4">4</td>
+            <td id="5">5</td>
+            <td id="6">6</td>
+            <td id="7">7</td>
+            <td id="8">8</td>
+        </tr>
+        <tr>
+            <td id="9" style="color: red;">9</td>
+            <td id="10">10</td>
+            <td id="11">11</td>
+            <td id="12">12</td>
+            <td id="13">13</td>
+            <td id="14">14</td>
+            <td id="15">15</td>
+        </tr>
+        <tr>
+            <td  id="16" style="color: red;">16</td>
+            <td id="17">17</td>
+            <td id="18">18</td>
+            <td id="19">19</td>
+            <td id="20">20</td>
+            <td id="21">21</td>
+            <td id="22">22</td>
+        </tr>
+        <tr>
+            <td  id="23" style="color: red;">
+                23
+            </td>
+            <td id="24">24</td>
+            <td id="25">25</td>
+            <td id="26">26</td>
+            <td id="27">27</td>
+            <td id="28">28</td>
+            <td id="29">29</td>
+        </tr>
+        <tr>
+            <td style="color: red;" colspan="7" id="30">30</td>
+        </tr>
+    </table>
+
+    <script>
+        
+    
+        $("td").on("click", function(){
+
+            a = $(this).html(); //text와 html의 차이 확실히 알고가기
+            b = this;
+            console.log(a) ;
+            console.log(b) ;
+            list = a.split('<br>');
+            console.log(list);
+            $("#input1").val(list[0]);
+
+        
+        });
+        $("#btn1").on("click", function(){
+            var c = $("#input2").val() ;
+            console.log(c) ;
+            $(b).html( $("#input1").val() + "<br>" + $("#input2").val() );
+            console.log(b);
+        
+        });
+
+
+        
+        
+
+    </script>
+
+</body>
+</html>
