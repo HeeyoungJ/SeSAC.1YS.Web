@@ -1,0 +1,42 @@
+<HTML>
+
+    <HEAD>
+    
+        <TITLE>버튼 랜덤 이동</TITLE>
+    
+        <script language="JavaScript">
+    
+            var randomNumber = 0;
+    
+            function change() {
+    
+                randomNumber = Math.floor(Math.random() * 500) + 1;
+    
+                loc.style.top = randomNumber;
+    
+                randomNumber = Math.floor(Math.random() * 500) + 1;
+    
+                loc.style.left = randomNumber;
+    
+            }
+    
+        </script>
+    
+    </HEAD>
+    
+    
+    <BODY>
+    
+        <div id="loc" style="position:absolute; left:350px; top:300px; width:50px; height:50px;">
+    
+            <form>
+    
+                <input type="button" value="눌러봐" onMouseOver="change()" onClick="alert('ㅊㅋ')">
+    
+            </form>
+    
+        </div>
+    
+    </BODY>
+    
+    </HTML>

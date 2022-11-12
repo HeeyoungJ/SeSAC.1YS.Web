@@ -11,15 +11,21 @@
             var c2 = document.getElementById("value2").value ;
             var c3 = document.getElementById("value3").value ;
             switch(c3)
-            {case '+' :
+            {case "+" :
             document.getElementById("value4").value = (Number(c1) + Number(c2));
+            break;
             case '-' :
             document.getElementById("value4").value = (Number(c1) - Number(c2));
+            break;
             case '*' :
-            document.getElementById("value4").value = (Number(c1) * Number(c2));
+            document.getElementById("value4").value = (Number(c1) * Number(c2));break;
             case '/' :
             document.getElementById("value4").value = (Number(c1) / Number(c2));
-        }}
+        }
+        console.log(c3);
+        console.log(value4);
+    
+    }
         function erase() {
             var c1 = document.getElementById("value1").value ;
             var c2 = document.getElementById("value2").value ;
@@ -36,16 +42,16 @@
 </head>
 <body>
     <span>값1:</span>
-    <input type="text" id="value1" value="">
+    <input type="text" id="value1" >
     <div></div>
     <span>값2:</span>
-    <input type="text" id="value2" value="">
+    <input type="text" id="value2" >
     <div></div>
     <span>연산자:</span>
-    <input type="text" id="value3" value="">
+    <input type="text" id="value3" >
     <div></div>
     <span>결과:</span>
-    <input type="text" id="value4" value="">
+    <input type="text" id="value4" >
     <div></div>
     <div style="height: 25px;"></div>
     <button type="button" onclick="calcu();">계산하기</button>
