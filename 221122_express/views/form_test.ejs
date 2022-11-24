@@ -5,16 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function sendGet(){
+            var form = document.getElementById("form_info");
+            axios({
+                method : "get",
+                url : "/gettest",
+                params : {name : form.name.value , gender : form.gender.value ,
+                    year : form.year.value , month : form.month.value , day : form.day.value ,
+                    interest : form.interest.value}
+            }).then(function(res){
+                alert(res.data);
+            })
+        }
+    </script>
+    <!-- <script>
+        function phone_validation(obj){
+            var regPhone = /^\d{3}-\d{3,4}-\d{4}$/;
+            if(regPhone.test(obj.value) === false) {
+                $(".error").text('000-0000-0000 양식에 맞게 입력해주세요.');
+            } else {
+                $(".error").text("");
+
+            }
+        }
+    </script> -->
 </head>
 <body>
-    <form action="/gettest" method="get" name="gettest">
+    <form id="form_info" action="/gettest" method="get" name="gettest">
         이름<input type="text" name="name">
     
         <fieldset>
             <legend>성별</legend>
 
-                <input type="radio" name="gender">남자
-                <input type="radio" name="gender">여자
+                <input type="radio" name="gender" value="남자">남자
+                <input type="radio" name="gender" value="여자">여자
         </fieldset>
     
         <fieldset>
@@ -35,19 +61,20 @@
                 <%}%>
             </select>일
         </fieldset>
-    
+
         <fieldset>
             <legend>관심사</legend>
             <input type="checkbox" name="interest">여행
             <input type="checkbox" name="interest">패션
             <input type="checkbox" name="interest">음식
         </fieldset>
+    
         <br>
-        <button>회원가입</button>
+        <button type="button" onclick="sendGet();">회원가입</button>
     </form>
 
     <form action="/posttest" method="post" name="posttest">
-        이름<input type="text" name="name">
+        이름<input type="text" name="name" pattern="^([가-힣]){2,5}$" title="한국 이름으로 가입 가능, 최대 5글자">
     
         <fieldset>
             <legend>성별</legend>
@@ -74,6 +101,10 @@
                 <%}%>
             </select>일
         </fieldset>
+
+        핸드폰 번호<input type="text" name="phone" pattern="^\d{3}-\d{3,4}-\d{4}$" placeholder="010-0000-0000" oninput="phone_validation( this );">
+        <!--정규식 유효성 검사 pattern="^[0-9]{11,11}$" title="11자리" -->
+        <!-- <div class="error"></div> -->
     
         <fieldset>
             <legend>관심사</legend>

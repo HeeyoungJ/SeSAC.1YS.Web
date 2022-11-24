@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function sendGet(){
+            var form = document.getElementById("form_info");
+            $.ajax({
+                url : '/ajax',
+                type: 'get',
+                data: {name: form.name.value, age: form.age.value},
+                success: function(data) {
+                    console.log(data);
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        }
+
+        function sendPost(){
+           var form = document.getElementById("form_info");
+            // form.name.value - 이 폼태그 안에 네임 속성의 값만 가져오는 것.
+
+            // axios get을 이용한 통신 , 불러온 axios 함수 그대로 사용
+            //어떤 경로(method) 어디로 (form)
+            $.ajax({
+                url : '/ajax',
+                type: 'post',
+                data: {name: form.name.value, age: form.age.value},
+                success: function(data) {
+                    console.log(data);
+                 },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <button type="button" onclick="sendGet();">get전송</button>
+    <button type="button" onclick="sendPost();">post전송</button>
+    <form id="form_info" action="/form" method="post">
+        이름 : <input type="text" name="name">
+        나이 : <input type="text" name="age">
+        <button>전송</button>
+    </form>
+</body>
+</html>

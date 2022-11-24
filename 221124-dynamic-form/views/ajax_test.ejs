@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        function login(){
+            var form = document.getElementById("form_test");
+            // form.name.value - 이 폼태그 안에 네임 속성의 값만 가져오는 것.
+
+            // axios get을 이용한 통신 , 불러온 axios 함수 그대로 사용
+            //어떤 경로(method) 어디로 (form)
+            $.ajax({
+                type : "post",
+                url: "/alarm",
+                data : {id : form.id.value , pw : form.pw.value}, //post는 data에 담아서 보낸다. get은 params
+                success: function(res) {
+                    document.getElementById("alarm").innerHTML = res;
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+        });
+        }
+
+        function fetch(){
+            var form = document.getElementById("form_test");
+            // form.name.value - 이 폼태그 안에 네임 속성의 값만 가져오는 것.
+
+            // axios get을 이용한 통신 , 불러온 axios 함수 그대로 사용
+            //어떤 경로(method) 어디로 (form)
+            fetch("/fetch", {
+                method : "post",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                        id: form.id.value,
+                        pw: form.pw.value,
+                }),
+            }).then(function(res){
+            document.getElementById("alarm").innerHTML = res;
+            });
+        }
+    </script>
+</head>
+<body>
+    <form id="form_test" action="/alarm" method="post">
+    I D <input type="text" name="id">
+    <br>
+    Pw <input type="text" name="pw">
+    <p style="background-color: gray; width: 200px;" id="alarm">알림</p>
+</form>
+    <button type="button" onclick="login();">ajax로 로그인</button>
+    <button type="button" onclick="fetch();">fetch로 로그인</button>
+</body>
+</html>

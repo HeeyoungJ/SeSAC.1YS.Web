@@ -92,8 +92,14 @@ app.get("/formtest" , (req, res)=>{
 
 app.get("/gettest" , (req, res)=>{
     console.log(req.query);
-    res.send("테스트 성공");
-})
+    res.send("정보를 확인해주세요." +
+     ' 이름 : ' + req.query.name +
+      ' 성별 : ' + req.query.gender +
+      ' 생일 : ' + req.query.year + '년' + req.query.month + '월' +
+      req.query.day + '일');
+});
+
+
 
 app.post("/formtest" , (req, res)=>{
     res.render("form_test");
@@ -104,3 +110,12 @@ app.post("/posttest" , (req, res)=>{
     res.send("테스트 성공");
 })
 
+function phone_validation(obj){
+     var regPhone = /^\d{3}-\d{3,4}-\d{4}$/;
+     if(regPhone.test(obj.value) === false) {
+         $(".error").text('000-0000-0000 양식에 맞게 입력해주세요.');
+     } else {
+         $(".error").text("");
+
+     }
+ }
