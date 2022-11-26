@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function login(){
+            const formData = new FormData();
+            var form = document.getElementById("form_test");
+            const file = document.getElementById('axios-file');
+            formData.append('file1', file.files[0]);
+            // formData.append("file1", form.file1.files[0])
+            //하지만 form이 아닌 file id를 가져오는 것이 더 편리하다.
+
+            axios({
+                method : "POST",
+                url: "/test",
+                data : formData,
+                headers : {
+                    'Content-Type': 'multipart/form-data',
+                }, //post는 data에 담아서 보낸다. get은 params
+            }).then(function(res){
+
+                document.querySelector('img').src = res.data.path;
+            });
+        }
+
+    </script>
+</head>
+<body>
+    <form id="form_test" action="/test" method="POST" name="test" enctype="multipart/form-data">
+        <fieldset>
+            <legend>개인 정보</legend>
+                아이디 : <input type="text" name="id">
+                비밀번호 : <input type="password" name="pw">
+                이름 : <input type="text" name="name">
+                나이 : <input type="text" name="age">
+        </fieldset>
+        <input type="file" name="file1" id="axios-file">
+        <button>리셋</button>
+        <button type="button" onclick="login();">회원가입</button>
+        <br>
+        <img src="" alt="hello">
+    </form>
+
+    
+</body>
+</html>

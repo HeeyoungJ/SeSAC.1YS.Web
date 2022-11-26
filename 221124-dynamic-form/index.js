@@ -31,9 +31,8 @@ app.post("/alarm", (req,res)=>{
         res.send("<p style = 'color:blue'>로그인 성공</p>");
     }else {
         res.send("<p style = 'color:red'>로그인 실패</p>");
-}
-}
-);
+    }
+    });
 
 app.listen(port, ()=>{
     console.log("Server Port : ", port);
