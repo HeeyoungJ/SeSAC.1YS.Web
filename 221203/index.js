@@ -9,15 +9,10 @@ app.use("/static", express.static(__dirname+"/static"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-//url 관련된 코드
 const router = require("./routes");
-//폴더까지만 와도 안에 index.js가 있다면 알아서 연결해줌.
-//파일명이 index가 아닐 경우, /파일명 붙여주기
-app.use('/visitor', router); //중요!
-// localhost:8000/amumal 라우터로 모두 이동시키겠다는 코드
-//미들웨어..?
 
-//제일 마지막에 써야하는 코드
+app.use('/user', router); 
+
 app.get("*", (req, res)=>{ //*은 모든 라우터라는 뜻
     res.send('error'); //ejs파일 render
 });
