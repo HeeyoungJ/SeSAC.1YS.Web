@@ -7,12 +7,17 @@
     <title>Document</title>
 </head>
 <body>
+    <% if ( !isLogin) {%>
     <div align="center">
         Welcome <br>
         <button>회원가입</button>
      <a href="/login">
         <button type="button" onclick="login();">로그인</button>
      </a>
+     <%} else {%>
+        <div><%=id%>님 환영홥니다.</div>
+        <a ref="/logout">로그아웃</a>
+        <%}%>
     </div>
 </body>
 </html>

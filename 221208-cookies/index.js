@@ -16,8 +16,6 @@ var config = {
     database: '새싹',
     stream: true
 }
-
-const user = {id: "a", pw:"1"};
 app.use(session({
     secret: '1234', //임의의 문자열로 세션 암호화 , 필수
     resave: false, //true: 모든 요청마다 session에 변화가 없어도 다시 저장
@@ -28,22 +26,22 @@ app.use(session({
     // },
     // secure: //true 보안서버에서만 작동
 }))
+// app.get("/" , (req,res)=> {
+//     if(isLogin)
+//     res.render("profile");
+//     else res.render("index");
+// });
 
-var isLogin = false;
 
-app.get("/" , (req,res)=> {
-    if(isLogin)
-    res.render("profile");
-    else res.render("index");
-});
+const user = {id: "a", pw:"1"};
 
 app.get("/", (req, res)=>{
-    if(req.session.uer)
-    res.render("profile", {isLogin: ture}) //isLogin은 변수
-    else res.render("index", {isLogin: false})
+    console.log(req.session.user);
+    if(req.session.uer) res.render("index", {isLogin: true, id: req.session.user});
+    else res.render("index", {isLogin: false}); //isLogin은 변수
     //만약 공간에 req.session.user가 있다면
-    res.send("hello");
-});
+})
+
 
 app.get("/login" , (req,res)=> {
     res.render("login");
@@ -54,8 +52,8 @@ app.post("/login", (req,res)=>{
     // req.session = { }
 
     if(req.body.id == user.id && req.body.qw == user.pw){
-        console.log("성공");
-        res.send("로그인 성공");
+        req.session.user = req.body.id;
+        res.send(true);
     }
     else{
         res.send("로그인 실패");
@@ -73,6 +71,14 @@ app.get("/profile" , (req,res)=> {
     res.render("profile");
     console.log(session.id);
 });
+
+app.get("/logout", (req,res)=>{
+    req.session.destroy(function(err){
+        if(err) throw err;
+
+        res.redirect("/");
+    })
+})
 
 // app.destroy("/logout", (req,res)=>{
 //     req.session.destroy(function(err){ //destroy내장함수
