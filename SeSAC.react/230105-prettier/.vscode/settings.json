@@ -1,0 +1,8 @@
+{
+    "[javascript]": {
+        "editor.maxTokenizationLineLength": 2500,
+        "editor.formatOnSave": true,
+        // 저장을 누르면 포맷 시작
+        "editor.defaultFormatter" : "esbenp.prettier-vscode"
+    }
+}
