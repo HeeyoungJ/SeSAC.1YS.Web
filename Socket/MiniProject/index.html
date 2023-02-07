@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>하하호호톡</title>
+    <link rel="stylesheet" href="/index.css">
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="chat">
+        <img src="/closebtn.png" alt="X" id="closebtn" onclick="closeBtn()">
+        <h5>HahaHohoTalk</h5>
+        <div id="indiv">
+        </div>
+        <div class="input">
+            <input class="inputSend" type="text" onkeyup="if(window.event.keyCode==13){함수명()}">
+        </div>
+    </div>
+    <script>
+
+        let socket = io.connect();
+
+        socket.on('welcome', (msg)=> {
+            console.log(msg);
+            const welcomemsg = document.getElementById('indiv');
+            welcomemsg.innerHTML = `<p id=alarmMsg>${msg}</p>`;
+        });
+
+         function closeBtn() {
+            socket.emit('close', '채팅 종료');
+        };
+        socket.on('closeres', (closement)=>{
+            console.log(closement);
+            const closemsg = document.getElementById('indiv');
+            closemsg.insertAdjacentHTML('beforeend',`<p id=alarmMsg>${closement}</p>`);
+        })
+    </script>
+</body>
+</html>

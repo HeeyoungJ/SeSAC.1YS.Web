@@ -1,0 +1,72 @@
+<!-- 클라이언트 -->
+<html>
+    <head>
+        <title>socket</title>
+        <!-- Socket.io cdn -->
+        <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <h2>Socket.io 사용하기</h2>
+        <button onclick="btnSend('hello')">hello</button>
+        <button onclick="btnSend('study')">study</button>
+        <button onclick="btnSend('bye')">bye</button>
+        <img src="../221105/apple.jpg" id="hellopic" alt="">
+        <script>
+            // 메세지 보내기 : socket.emit("이벤트명", data)
+            // 메세지 받기 : socket.on("이벤트명", (data) => {} )
+
+            // 클라이언트 소켓 생성 후 연결
+            let socket = io.connect();
+
+            //클라이언트가 연결이 되었을 때, 자동으로 실행
+            socket.on('connect' , () => {
+                console.log('server connected');
+            })
+
+            //welcome 메세지 받기
+            socket.on('welcome', (data)=>{
+                /// data : {msg : ''}
+                console.log(data.msg);
+                socket.emit('response', 'hello')
+            })
+
+            // 실습
+
+            // // hello----------------------------------
+            // function hello () {
+            // socket.emit('hello', 'client hello'
+            // );
+            // };
+            // socket.on('hellores', (str) => {
+            //     console.log(str);
+            // });
+            
+            // //study----------------------------------
+            // function study () {
+            // socket.emit('study', {msg: 'client study'}
+            // );
+            // };
+            // socket.on('studyres', (str) => {
+            //     console.log(str);
+            // });
+            
+            // //bye----------------------------------
+            // function bye () {
+            // socket.emit('bye', {msg: 'client bye'}
+            // );
+            // };
+            // socket.on('byeres', (str) => {
+            //     console.log(str);
+            // });
+            //함수 하나로 보내는 방법
+            const btnSend = (msg) => {
+                socket.emit('send', msg)
+            }
+            //!!!!!!!!!!!!!!!!!!!!!!!함수안에 넣게되면 함수가 실행되었을때, response가 등록되기 때문에 항상 받을 수 있게 밖으로 빼놓는 것.
+            socket.on('response', (msg) => {
+                console.log(msg);
+            });
+
+        </script>
+    </body>
+</html>

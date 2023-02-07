@@ -1,0 +1,54 @@
+.chat {
+    text-align: center;
+    background: linear-gradient(45deg, #FFD6FD, #D4F4FA);
+    width:40%;
+    height: 60%;
+    border-radius: 10px;
+    position: fixed;
+    top: 20%;
+    left:30%;
+}
+
+h5 {
+    color: white;
+    position: relative;
+    text-shadow: 1px 1px gray;
+}
+
+#indiv{
+    background-color: #FFFFE5;
+    width: 90%;
+    height: 80%;
+    border-radius: 10px;
+    padding: 5px;
+    margin: auto;
+    overflow-x: auto;
+}
+
+.input{
+    position: absolute;
+    bottom: 1%;
+    width: 100%;
+}
+
+.inputSend{
+    width: 90%;
+    border-radius: 5px;
+    border:none;
+}
+.inputSend:focus {
+    outline-color: #EAEAEA;
+}
+#closebtn {
+    position: absolute;
+    top: 1%;
+    right: 3%;
+    width: 15px;
+    cursor: pointer;
+}
+#alarmMsg {
+    background-color: rgb(177, 177, 177);
+    font-size: 5%;
+    border-radius: 5px;
+    color: white;
+}
