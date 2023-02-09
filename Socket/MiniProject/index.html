@@ -10,29 +10,112 @@
         <img src="/closebtn.png" alt="X" id="closebtn" onclick="closeBtn()">
         <h5>HahaHohoTalk</h5>
         <div id="indiv">
+            <div clss="me"></div>
+            <div class="you"></div>
         </div>
         <div class="input">
-            <input class="inputSend" type="text" onkeyup="if(window.event.keyCode==13){함수명()}">
+            <select id="members">
+            <input class="inputSend" id="inputSend" type="text" onkeyup="chatSend()">
         </div>
     </div>
+    
     <script>
+    //     function closeBtn() {
+    //        socket.emit('close', '채팅 종료');
+    //    };
 
-        let socket = io.connect();
+       function chatSend() {
+        if (window.event.keyCode == 13){
+            const input = document.getElementById('inputSend')
+            const to = document.getElementById('members').value;
+            //{to : to}
+            socket.emit('send', {msg : input.value, to})
+            console.log('엔터키');
+        }
+       }
 
+       const username = prompt('닉네임을 입력해주세요.(5자 이하 권장)');
+        const socket = io.connect();
+        
+        let my_id = ''
+        socket.on('info', (socketID)=>{
+            my_id = socketID
+        })
+
+        socket.on("connect", ()=>{
+            socket.emit("username", username);
+        })
+        
         socket.on('welcome', (msg)=> {
-            console.log(msg);
+            console.log('왔다',msg);
             const welcomemsg = document.getElementById('indiv');
-            welcomemsg.innerHTML = `<p id=alarmMsg>${msg}</p>`;
+            welcomemsg.innerHTML = `<div class=alarmMsg>${msg}</div>`;
         });
 
-         function closeBtn() {
-            socket.emit('close', '채팅 종료');
-        };
-        socket.on('closeres', (closement)=>{
-            console.log(closement);
-            const closemsg = document.getElementById('indiv');
-            closemsg.insertAdjacentHTML('beforeend',`<p id=alarmMsg>${closement}</p>`);
+        socket.on('notice', (msg)=> {
+            // div.textContent = msg;
+            const indiv = document.querySelector('#indiv');
+            const div = document.createElement('div');
+            div.classList.add('alarmMsg');
+            div.textContent = msg;
+            indiv.appendChild(div);
         })
+
+        socket.on("list", (list)=>{
+            console.log('리스트',list);
+            const member_list = document.getElementById('members');
+            
+            // select box option tag 모두 지우기
+            while(member_list.firstChild) member_list.removeChild(member_list.lastChild);
+
+            const option = document.createElement('option')
+            option.text = '전체'
+            option.vallue = '전체'
+            member_list.appendChild(option)
+            console.log('객체', Object.entries(list))
+
+            for(let [ key, value ] of Object.entries(list)) {
+                const option = document.createElement('option')
+                option.text = value;
+                option.value = value;
+                member_list.appendChild(option)
+            }
+        })
+
+        
+
+
+        socket.on('newMsg', (json)=>{
+            //msg : 메세지, from : 보낸사람 소켓id , username : 보낸사람 닉네임
+            //json { msg : ~~~, from ~~~, username :~~~}
+            console.log(json);
+
+            const indiv = document.querySelector('#indiv');
+            const div = document.createElement('div');
+            div.classList.add('you');
+            div.textContent = json.username + "님 : " + json.msg;
+
+            //내가보낸 메세지
+            if(my_id == json.from) {
+                if (json.is_dm)div.classList.add('my-dm', 'dm')
+                else div.classList('my-chat');}
+        
+            // 남이 보낸 메세지
+            else {
+                if (json.is_dm) div.classList('dm')
+                else div.classList.add('other-chat');
+            }
+
+            indiv.appendChild(div);
+            // div.appendChild(indiv);
+        })
+
+
+        // socket.on('closeres', (closement)=>{
+        //     console.log(closement);
+        //     const closemsg = document.getElementById('indiv');
+        //     closemsg.insertAdjacentHTML('beforeend',`<div class=alarmMsg>${closement}</div>`);
+        // })
     </script>
 </body>
 </html>

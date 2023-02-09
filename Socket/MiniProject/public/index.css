@@ -24,15 +24,79 @@ h5 {
     margin: auto;
     overflow-x: auto;
 }
+.me{
+    position: absolute;
+    right: 13px;
+    width:50%;
+    background-color: rgb(249, 206, 255);
+    font-size: 5%;
+    border-radius: 5px;
+    color: white;
+    margin: 2px;
+    padding: 5px;
+    text-align: start;
+}
+.my-chat{
+    position: absolute;
+    right: 13px;
+    width:50%;
+    background-color: rgb(225, 0, 255);
+    font-size: 5%;
+    border-radius: 5px;
+    color: white;
+    margin: 2px;
+    padding: 5px;
+    text-align: start;
+}
+.you{
+    position: absolute;
+    left: 13px;
+    width:50%;
+    background-color: #b0caff;
+    font-size: 5%;
+    border-radius: 5px;
+    color: white;
+    margin: 2px;
+    padding: 5px;
+    text-align: start;
+}
+.other-chat{
+    position: absolute;
+    left: 13px;
+    width:50%;
+    background-color: #0055fe;
+    font-size: 5%;
+    border-radius: 5px;
+    color: white;
+    margin: 2px;
+    padding: 5px;
+    text-align: start;
+}
+
+#indiv::-webkit-scrollbar {
+    background-color: white;
+    border-radius: 10px;
+    width: 3px;
+}
+#indiv::-webkit-scrollbar-thumb {
+    background-color: rgb(179, 179, 179);
+    border-radius: 10px;
+}
+#indiv::-webkit-scrollbar-track {
+    width : 2px;
+}
 
 .input{
     position: absolute;
     bottom: 1%;
     width: 100%;
 }
-
+#members {
+    width: 10%;
+    border-radius: 5px;
+}
 .inputSend{
-    width: 90%;
+    width: 80%;
     border-radius: 5px;
     border:none;
 }
@@ -46,9 +110,11 @@ h5 {
     width: 15px;
     cursor: pointer;
 }
-#alarmMsg {
+.alarmMsg {
     background-color: rgb(177, 177, 177);
     font-size: 5%;
     border-radius: 5px;
     color: white;
+    margin: 2px;
+    padding: 1px;
 }
