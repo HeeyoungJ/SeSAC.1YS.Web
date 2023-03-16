@@ -85,7 +85,7 @@ public class MainController {
     }
     @GetMapping("/introduce5/{홍길동}")
     public String getAPI10(@PathVariable(value = "홍길동") String name, Model model){
-        model.addAttribute("홍길동", name);
+        model.addAttribute("name", name);
         return "response";
     }
 
@@ -139,6 +139,7 @@ public class MainController {
         String msg = "이름 : " + userDTO.getName() + "\n나이 : " + userDTO.getAge();
         return msg;
     }
+    //Json형태로 들어올 때, RequstBody가 있어야 자동으로 맵핑해줌
     @PostMapping("/axios/response3")
     @ResponseBody
     public String axiosAPI3(@RequestParam(value = "name") String name, @RequestParam(value="age") String age){
@@ -155,6 +156,37 @@ public class MainController {
     @ResponseBody
     public String axiosAPI5(@RequestBody UserDTO userDTO){
         String msg = "이름 : " + userDTO.getName() + "\n나이 : " + userDTO.getAge();
+        return msg;
+    }
+    @GetMapping("/axios/vo/response1")
+    @ResponseBody
+    public String axiosAPI11(@RequestParam(value = "name") String name, @RequestParam(value="age") String age){
+        String msg = "이름 : " + name + "\n나이 : " + age;
+        return msg;
+    }
+    @GetMapping("/axios/vo/response2")
+    @ResponseBody
+    public String axiosAPI12(UserVO userVO){
+        String msg = "이름 : " + userVO.getName() + "\n나이 : " + userVO.getAge();
+        return msg;
+    }
+    //Json형태로 들어올 때, RequstBody가 있어야 자동으로 맵핑해줌
+    @PostMapping("/axios/vo/response3")
+    @ResponseBody
+    public String axiosAPI13(@RequestParam(value = "name") String name, @RequestParam(value="age") String age){
+        String msg = "이름 : " + name + "\n나이 : " + age;
+        return msg;
+    }
+    @PostMapping("/axios/vo/response4")
+    @ResponseBody
+    public String axiosAPI14(UserVO userVO){
+        String msg = "이름 : " + userVO.getName() + "\n나이 : " + userVO.getAge();
+        return msg;
+    }
+    @PostMapping("/axios/vo/response5")
+    @ResponseBody
+    public String axiosAPI15(@RequestBody UserVO userVO){
+        String msg = "이름 : " + userVO.getName() + "\n나이 : " + userVO.getAge();
         return msg;
     }
 }

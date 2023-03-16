@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      function postEdit(){
+      var form = document.getElementById('Post_list');
+      var data = {
+      title = form.title,value,
+      writer = form.writer.value,
+      post = form.post.value
+      }
+      axios.post(`/post/upload`,data)
+      .then((res)=>{
+      alert('수정 완료');
+      document.location.href = "/Post/list";
+      });
+      }
+    </script>
+</head>
+<body>
+<form id="Post_list">
+  <input type="text" placeholder="제목" name="title">
+    <br>
+    <input type="text" placeholder="작성자" name="writer">
+  <br>
+  <input type="text" placeholder="내용을 입력하세요." name="post">
+  <br>
+  <button type="button" onclick="postEdit();">글수정</button>
+</form>
+</body>
+</html>
